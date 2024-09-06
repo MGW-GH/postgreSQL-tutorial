@@ -94,10 +94,17 @@ matthew_webster = Programmer(
 # session.add(margaret_hamilton) 
 # session.add(bill_gates) 
 # session.add(tim_berners_lee) 
-session.add(matthew_webster)
+# session.add(matthew_webster)
 
 # commit our session to the database
+# session.commit()
+
+# updating a single record
+programmer = session.query(Programmer).filter_by(id=7).first()
+programmer.famous_for = "Criminal Hacker"
+
 session.commit()
+
 
 # query the database to find all Programmers
 programmers = session.query(Programmer)
