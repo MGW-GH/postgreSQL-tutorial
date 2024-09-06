@@ -19,17 +19,18 @@ album_table = Table(
     "Album", meta,
     Column("AlbumId", Integer, primary_key=True),
     Column("Title", String),
-    Column("ArtistId", Integer, ForeignKey("artist_table.ArtirstId"))
+    Column("ArtistId", Integer, ForeignKey("artist_table.ArtistId"))
 )
 
 # create a variable for "Track" table
 track_table = Table(
+    "Track", meta,
     Column("TrackId", Integer, primary_key=True),
     Column("Name", String),
-    Column("AlbumId", Integer, ForeignKey("album.table.AlbumId")),
+    Column("AlbumId", Integer, ForeignKey("album_table.AlbumId")),
     Column("MediaTypeId", Integer, primary_key=False),
     Column("GenreId", Integer, primary_key=False),
-    Column("Composer", Integer),
+    Column("Composer", String),
     Column("Milliseconds", Integer),
     Column("Bytes", Integer),
     Column("UnitPrice", Float)
